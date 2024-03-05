@@ -1,10 +1,10 @@
 import { Title, Logo, Wrapper } from "./styled";
-import logo from "./logo.png"
+import logo from "./logo.svg"
 export const Header = () => {
     return (
         <>
             <Wrapper>
-                <Title>WeatcherApp</Title>
+                <Title>Weatcher App</Title>
                 <Logo src={logo} alt="logo"></Logo>
             </Wrapper>
         </>
