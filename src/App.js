@@ -1,15 +1,15 @@
+import { HashRouter, Switch, Route } from "react-router-dom";
 import { WeatcherApp } from "./features/WeatcherApp";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./theme";
-import { GlobalStyle } from "./globalStyle";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <WeatcherApp />
-    </ThemeProvider>
-
+    <HashRouter>
+      <Switch>
+        <Route path="/">
+          <WeatcherApp />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 }
 
