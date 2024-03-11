@@ -4,7 +4,7 @@ export const Header = () => {
     return (
         <>
             <Wrapper>
-                <StyledLink>
+                <StyledLink to="/">
                     <Title>Weatcher App</Title>
                     <Logo src={logo} alt="logo"></Logo>
                 </StyledLink>
