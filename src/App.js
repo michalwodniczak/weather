@@ -1,4 +1,4 @@
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { WeatcherApp } from "./features/WeatcherApp";
 
 function App() {
@@ -7,6 +7,9 @@ function App() {
       <Switch>
         <Route path="/">
           <WeatcherApp />
+        </Route>
+        <Route path="/">
+          <Redirect to="weatcher" />
         </Route>
       </Switch>
     </HashRouter>
