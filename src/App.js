@@ -1,12 +1,12 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { WeatcherApp } from "./features/WeatcherApp";
+import { WeatherApp } from "./features/WeatherApp";
 
 function App() {
   return (
     <HashRouter>
       <Switch>
         <Route path="/">
-          <WeatcherApp />
+          <WeatherApp />
         </Route>
         <Route path="/">
           <Redirect to="weatcher" />

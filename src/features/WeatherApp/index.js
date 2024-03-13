@@ -3,7 +3,7 @@ import { Header, } from "../../Header";
 import { Section } from "../../common/Section";
 import { Search } from "../../Search";
 
-export const WeatcherApp = () => {
+export const WeatherApp = () => {
     return (
         <Container>
             <Header />

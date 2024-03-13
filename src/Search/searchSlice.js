@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const weatcherSlice = createSlice({
-    name: "weatcher",
+const weatherSlice = createSlice({
+    name: "weather",
     initialState: {
         data: null,
         status: "null",
+        inputValue: ""
     },
     reducers: {
-        fetchWeatcher: () => { },
+        fetchWeather: () => { },
 
         setStatus: (state, { payload: status }) => {
             state.status = status
@@ -16,11 +17,16 @@ const weatcherSlice = createSlice({
         setData: (state, { payload: data }) => {
             state.data = data
         },
-
+        setInputValue: (state, { payload: query }) => {
+            state.status = "loading"
+            state.inputValue = query;
+        },
     },
 });
 
-export const selectData = state => state.data
-export const { fetchWeatcher, setStatus, setData } = weatcherSlice.actions;
+export const selectData = state => state.data;
+export const selectStatus = state => state.status;
+export const selectInputValue = (state) => state.inputValue;
+export const { fetchWeather, setStatus, setData, setInputValue } = weatherSlice.actions;
 
-export default weatcherSlice.reducer;
+export default weatherSlice.reducer;
