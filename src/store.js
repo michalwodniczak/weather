@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import weatcherReducer from "./Search/searchSlice";
+import weatherReducer from "./Search/searchSlice";
 import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
     reducer: {
-        weatcher: weatcherReducer,
+        weather: weatherReducer,
     },
     middleware: () => [sagaMiddleware]
 });
