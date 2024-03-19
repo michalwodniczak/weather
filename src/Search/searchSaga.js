@@ -1,22 +1,21 @@
 import { call, put, takeLatest, delay } from "redux-saga/effects";
 import { getApi } from "../getApi";
-import { fetchWeatcher, setData, setStatus } from "./searchSlice";
+import { fetchWeather, setData, setStatus } from "./searchSlice";
 
 
-function* fetchWeatcherHandler() {
+function* fetchWeatherHandler() {
     try {
-        delay(2000)
-        yield put(setStatus("loading"))
+        yield delay(2000);
+        yield put(setStatus("loading"));
         const data = yield call(getApi);
         yield put(setData(data));
-        console.log(data);
-        yield put(setStatus("succes"));
-    } catch {
+        // console.log(data);
+        yield put(setStatus("success"));
+    } catch (error) {
         yield put(setStatus("error"));
-    }
-}
+    };
+};
 
-export function* watchFetchWetcher() {
-    yield takeLatest(fetchWeatcher.type, fetchWeatcherHandler);
-    console.log("saga robi bzium")
-}
+export function* watchFetchWeather() {
+    yield takeLatest(fetchWeather.type, fetchWeatherHandler);
+};
