@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 export const StyledItem = styled.div`
-    width: 300px;
-    max-width: 400px;
+    width: 100%;
+    max-width: 600px;
     margin: 10px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.tablet}px){
+        width: 90%;
+    }
 `
 export const Header = styled.div`
     display: flex;
