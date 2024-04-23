@@ -1,22 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const weatherSlice = createSlice({
-    name: "weather",
+const searchSlice = createSlice({
+    name: "search",
     initialState: {
         data: null,
         status: "null",
         inputValue: ""
     },
     reducers: {
-        fetchWeather: () => { },
-
-        setStatus: (state, { payload: status }) => {
-            state.status = status
+        setSearchSucces: (state, { payload: data }) => {
+            state.status = "success";
+            state.data = data;
         },
 
-        setData: (state, { payload: data }) => {
-            state.data = data
+        setSearchFailure: (state, { payload: message }) => {
+            state.data = null;
+            state.status = "error";
+            state.error = message;
         },
+
         setInputValue: (state, { payload: query }) => {
             state.status = "loading"
             state.inputValue = query;
@@ -24,9 +26,12 @@ const weatherSlice = createSlice({
     },
 });
 
-export const selectData = state => state.data;
-export const selectStatus = state => state.status;
-export const selectInputValue = (state) => state.inputValue;
-export const { fetchWeather, setStatus, setData, setInputValue } = weatherSlice.actions;
+const selectState = state => state.search;
 
-export default weatherSlice.reducer;
+export const selectData = state => selectState(state).data;
+export const selectStatus = state => selectState(state).status;
+export const selectInputValue = (state) => selectState(state).inputValue;
+
+export const { setSearchSucces, setInputValue, setSearchFailure } = searchSlice.actions;
+
+export default searchSlice.reducer;
