@@ -1,21 +1,19 @@
-import { call, put, takeLatest, delay } from "redux-saga/effects";
-import { getApi } from "../getApi";
-import { fetchWeather, setData, setStatus } from "./searchSlice";
-
+import { call, put, takeLatest, delay, select } from "redux-saga/effects";
+import { getSearch } from "../getSearch";
+import { selectInputValue, setInputValue, setSearchFailure, setSearchSuccess} from "./searchSlice";
 
 function* fetchWeatherHandler() {
     try {
-        yield delay(2000);
-        yield put(setStatus("loading"));
-        const data = yield call(getApi);
-        yield put(setData(data));
-        // console.log(data);
-        yield put(setStatus("success"));
+        const query = yield select(selectInputValue);
+        if (query !== '') {
+            const result = yield call(getSearch, query);
+            yield put(setSearchSuccess(result))
+        }
     } catch (error) {
-        yield put(setStatus("error"));
+        yield put(setSearchFailure(error.message));
     };
 };
 
-export function* watchFetchWeather() {
-    yield takeLatest(fetchWeather.type, fetchWeatherHandler);
+export function* watchSearchWeather() {
+    yield takeLatest(setInputValue.type, fetchWeatherHandler);
 };
