@@ -1,6 +1,6 @@
-import { call, put, takeLatest, delay, select } from "redux-saga/effects";
+import { call, put, takeLatest, select} from "redux-saga/effects";
 import { getSearch } from "../getSearch";
-import { selectInputValue, setInputValue, setSearchFailure, setSearchSuccess} from "./searchSlice";
+import { selectInputValue, setInputValue, setSearchFailure, setSearchSuccess } from "./searchSlice";
 
 function* fetchWeatherHandler() {
     try {
