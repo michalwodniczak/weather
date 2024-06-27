@@ -18,8 +18,6 @@ export const getApi = async () => {
         return citiesData;
     }
     catch {
-        throw new Error("Failed to search");
+        throw new Error("Failed to fetch");
     };
 };
-
-// http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fdc13a97817ad7d39b8a876be7b0a7c7
