@@ -1,5 +1,8 @@
+import { Wrapper, Loader } from "./styled";
 export const Loading = () => {
     return (
-        <p>Ładowanko tylko</p>
+        <Wrapper>
+            <Loader />
+        </Wrapper>
     )
 };
