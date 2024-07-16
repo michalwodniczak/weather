@@ -4,11 +4,12 @@ const searchSlice = createSlice({
     name: "search",
     initialState: {
         data: null,
-        status: "null",
-        inputValue: ""
+        status: "idle",
+        inputValue: "",
+        error: null,
     },
     reducers: {
-        setSearchSucces: (state, { payload: data }) => {
+        setSearchSuccess: (state, { payload: data }) => {
             state.status = "success";
             state.data = data;
         },
@@ -23,6 +24,10 @@ const searchSlice = createSlice({
             state.status = "loading"
             state.inputValue = query;
         },
+
+        setStatus: (state, { payload: status }) => {
+            state.status = status;
+        },
     },
 });
 
@@ -32,6 +37,6 @@ export const selectData = state => selectState(state).data;
 export const selectStatus = state => selectState(state).status;
 export const selectInputValue = (state) => selectState(state).inputValue;
 
-export const { setSearchSucces, setInputValue, setSearchFailure } = searchSlice.actions;
+export const { setSearchSuccess, setInputValue, setSearchFailure, setStatus } = searchSlice.actions;
 
 export default searchSlice.reducer;
