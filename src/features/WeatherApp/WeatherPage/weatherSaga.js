@@ -1,4 +1,4 @@
-import { call, put, takeLatest} from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getApi } from "../../../getApi";
 import { fetchData, setData, setStatus } from "./weatherSlice";
 
