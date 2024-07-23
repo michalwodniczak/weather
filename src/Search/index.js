@@ -27,15 +27,13 @@ export const Search = () => {
     };
 
     const onClickSearch = async () => {
-        console.log(`odpalono funkcje onClickSearch a w niej mam inputValue ${inputValue}`);
-        dispatch(setStatus("loading"));
-
         if (!inputValue || !inputValue.trim()) {
             searchParams.delete("query");
             history.push(`${location.pathname}?${searchParams.toString()}`);
             return;
         }
 
+        dispatch(setStatus("loading"));
         searchParams.set("query", inputValue);
         history.push(`${location.pathname}?${searchParams.toString()}`);
 
