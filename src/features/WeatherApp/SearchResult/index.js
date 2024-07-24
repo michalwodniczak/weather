@@ -8,7 +8,7 @@ import { ErrorPage } from "../ErrorPage";
 export const SearchResult = () => {
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);
-  
+
   switch (status) {
     case "loading":
       return <Loading />
@@ -30,7 +30,8 @@ export const SearchResult = () => {
         </>
       )
     case "error":
-    return <ErrorPage />
+      return <ErrorPage />
     default:
+      return null;
   };
 };
