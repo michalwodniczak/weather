@@ -22,7 +22,7 @@ export const Search = () => {
 
     const onChangeInput = ({ target }) => {
         const inputQuery = target.value.trim() !== "" ? target.value : undefined;
-        if (/^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*$/.test(inputQuery))
+        if (/^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]*$/.test(inputQuery))
             setLocalInputValue(inputQuery);
     };
 
