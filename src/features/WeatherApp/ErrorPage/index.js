@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Wrapper, ErrorText, Query } from "./styled";
-import { selectInputValue } from "../../../Search/searchSlice";
+import { selectInputValue} from "../../../Search/searchSlice";
 
 export const ErrorPage = () => {
     const query = useSelector(selectInputValue);
