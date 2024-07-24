@@ -5,11 +5,11 @@ function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <WeatherApp />
         </Route>
         <Route path="/">
-          <Redirect to="weatcher" />
+          <Redirect to="/" />
         </Route>
       </Switch>
     </HashRouter>
