@@ -8,6 +8,7 @@ export const Wrapper = styled.section`
     border: 1px solid ${({theme}) => theme.color.black};
     border-radius: 5px;
     text-align: center;
+    word-wrap: break-word;
 
     @media (max-width: ${({theme}) => theme.breakpoints.tablet}px){
         max-width: 500px;
@@ -15,6 +16,7 @@ export const Wrapper = styled.section`
     
     @media (max-width: ${({theme}) => theme.breakpoints.mobile}px){
         max-width: 300px;
+        font-size: 14px;
     };
 `
 
