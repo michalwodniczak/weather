@@ -13,4 +13,8 @@ export const Title = styled.h2`
     padding: 10px;
     text-align: center;
     font-size: 30px;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}px){
+        font-size: 20px;
+    }
 `
