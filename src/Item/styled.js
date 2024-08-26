@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledItem = styled.div`
     width: 100%;
     max-width: 600px;
-    margin: 10px;
+    margin: 10px auto;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
