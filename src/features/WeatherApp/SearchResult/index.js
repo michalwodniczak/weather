@@ -9,29 +9,27 @@ export const SearchResult = () => {
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);
 
-  switch (status) {
-    case "loading":
-      return <Loading />
-    case "success":
-      return (
-        <>
-          <Wrapper>
-            <Item
-              key={data.name}
-              title={data.name}
-              temp={data.main.temp}
-              tempFeel={data.main.feels_like}
-              wind={data.wind.speed}
-              pressure={data.main.pressure}
-              icon={data.weather[0].icon}
-              description={data.weather[0].description}
-            />
-          </Wrapper>
-        </>
-      )
-    case "error":
-      return <ErrorPage />
-    default:
-      return null;
+
+  if (status === "loading") {
+    return <Loading />
   };
+
+  if (status === "error" || data === null) {
+    return <ErrorPage />
+  };
+
+  return (
+    <Wrapper>
+      <Item
+        key={data?.name}
+        title={data?.name}
+        temp={data?.main.temp}
+        tempFeel={data?.main.feels_like}
+        wind={data?.wind.speed}
+        pressure={data?.main.pressure}
+        icon={data?.weather[0]?.icon}
+        description={data?.weather[0]?.description}
+      />
+    </Wrapper>
+  );
 };

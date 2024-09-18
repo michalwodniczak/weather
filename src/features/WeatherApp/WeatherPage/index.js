@@ -15,30 +15,31 @@ export const WeatherPage = () => {
     }, [dispatch])
     const weatherData = useSelector(selectData);
 
-    switch (status) {
-        case "loading":
-            return <Loading />
-        case "error":
-            return <ErrorPage />
-        default:
-            return (
-                <>
-                    <Title>Weather in Europe</Title>
-                    <Wrapper>
-                        {weatherData && weatherData.map(city => (
-                            <Item
-                                key={city.weather.name}
-                                title={city.weather.name}
-                                temp={city.weather.main.temp}
-                                tempFeel={city.weather.main.feels_like}
-                                wind={city.weather.wind.speed}
-                                pressure={city.weather.main.pressure}
-                                icon={city.weather.weather[0].icon}
-                                description={city.weather.weather[0].description}
-                            />
-                        ))}
-                    </Wrapper>
-                </>
-            )
-    };
+    if (status === "loading") {
+        return <Loading />
+    }
+
+    if (status === "error") {
+        return <ErrorPage />
+    }
+
+    return (
+        <>
+            <Title>Weather in Europe</Title>
+            <Wrapper>
+                {weatherData && weatherData.map(city => (
+                    <Item
+                        key={city?.weather.name}
+                        title={city?.weather.name}
+                        temp={city?.weather.main.temp}
+                        tempFeel={city?.weather.main.feels_like}
+                        wind={city?.weather.wind.speed}
+                        pressure={city?.weather.main.pressure}
+                        icon={city?.weather.weather[0]?.icon}
+                        description={city?.weather.weather[0]?.description}
+                    />
+                ))}
+            </Wrapper>
+        </>
+    );
 };
